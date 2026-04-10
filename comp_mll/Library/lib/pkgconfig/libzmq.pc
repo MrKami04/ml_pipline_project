@@ -1,0 +1,12 @@
+prefix=E:/ml_pipline_project/comp_mll/Library
+exec_prefix=E:/ml_pipline_project/comp_mll/Library
+libdir=E:/ml_pipline_project/comp_mll/Library/lib
+includedir=E:/ml_pipline_project/comp_mll/Library/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.5
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Requires.private: 
+Cflags: -I${includedir} 
