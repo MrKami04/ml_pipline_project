@@ -4,7 +4,11 @@ import numpy as np
 from src.logger import logging
 from src.exception import CustomException
 from dataclasses import dataclass
-
+from sklearn.model_selection import train_test_split
+from src.components.data_tranformation import DataTransformation
+from src.utils import save_object
+from src.components.model_trainer import ModelTrainer
+from src.utils import evaluate_model
 
 @dataclass
 class DataIngestionConfig:
@@ -30,7 +34,7 @@ class DataIngestion:
             ############
             
             logging.info("Train test split initiated.")
-            from sklearn.model_selection import train_test_split
+            
             
             train_set, test_set = train_test_split(df, test_size=0.3, random_state=42)
             
@@ -51,5 +55,12 @@ class DataIngestion:
     
 if __name__ == "__main__":
     obj = DataIngestion()
-    obj.initiate_data_ingestion()   
+    train_path, test_path = obj.initiate_data_ingestion()
     
+    data_transformation = DataTransformation()
+    train_arr, test_arr, _ = data_transformation.initialize_data_transformation(
+        train_path, test_path)    
+    
+    
+    model_trainer = ModelTrainer()
+    print(model_trainer.initiate_model_trainer(train_arr, test_arr))
