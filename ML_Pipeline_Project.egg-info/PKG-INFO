@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ML_Pipeline_Project
+Version: 0.0.1
+Summary: Machine Learning Pipeline Project
+Author: Kamran Manzoor
+Author-email: kamranmanzoor1448@gmail.com
+Requires-Dist: setuptools
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: Flask
+Requires-Dist: scikit-learn
+Requires-Dist: seaborn
