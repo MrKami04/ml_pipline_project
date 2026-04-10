@@ -1,0 +1,6 @@
+[2026-04-10 18:46:16,539] werkzeug - WARNING -  * Debugger is active!
+[2026-04-10 18:46:16,548] werkzeug - INFO -  * Debugger PIN: 451-382-089
+[2026-04-10 18:46:56,610] root - ERROR - Error occurred in script: [E:\ml_pipline_project\src\app.py] at line number: [<frame at 0x0000018D2A6177C0, file 'E:\\ml_pipline_project\\src\\app.py', line 19, code index>] error message: [This is a test exception for the index route.]
+[2026-04-10 18:46:56,611] root - ERROR - An error occurred in the index route.
+[2026-04-10 18:46:56,612] werkzeug - INFO - 127.0.0.1 - - [10/Apr/2026 18:46:56] "GET / HTTP/1.1" 200 -
+[2026-04-10 18:46:56,676] werkzeug - INFO - 127.0.0.1 - - [10/Apr/2026 18:46:56] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
