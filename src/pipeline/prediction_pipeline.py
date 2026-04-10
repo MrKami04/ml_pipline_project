@@ -4,7 +4,6 @@
 # create function to convert data into dataframe with the help of dictionary
 
 import os , sys
-from turtle import st
 from src.logger import logging
 from src.exception import CustomException
 import numpy as np
@@ -54,25 +53,23 @@ class CustomClass:
         self.hours_per_week = hours_per_week    
         self.native_country = native_country
         
-        
-        
-def custom_data_frame(self):
-    try:
-        custom_data_input_dict = {
-            'age': [self.age],
-            'workclass': [self.workclass],
-            'education_num': [self.education_num],
-            'marital_status': [self.marital_status],
-            'occupation': [self.occupation],
-            'relationship': [self.relationship],
-            'race': [self.race],
-            'sex': [self.sex],
-            'capital_gain': [self.capital_gain],        
-            'capital_loss': [self.capital_loss],
-            'hours_per_week': [self.hours_per_week],
-            'native_country': [self.native_country]
-        }
-        return pd.DataFrame(custom_data_input_dict)
-    except Exception as e:
-        logging.info('Error in creating custom data frame')
-        raise CustomException(e, sys)
+    def custom_data_frame(self):
+        try:
+            custom_data_input_dict = {
+                'age': [self.age],
+                'workclass': [self.workclass],
+                'education_num': [self.education_num],
+                'marital_status': [self.marital_status],
+                'occupation': [self.occupation],
+                'relationship': [self.relationship],
+                'race': [self.race],
+                'sex': [self.sex],
+                'capital_gain': [self.capital_gain],
+                'capital_loss': [self.capital_loss],
+                'hours_per_week': [self.hours_per_week],
+                'native_country': [self.native_country]
+            }
+            return pd.DataFrame(custom_data_input_dict)
+        except Exception as e:
+            logging.info('Error in creating custom data frame')
+            raise CustomException(e, sys)

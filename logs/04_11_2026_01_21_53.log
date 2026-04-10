@@ -1,0 +1,8 @@
+[2026-04-11 01:21:55,011] werkzeug - WARNING -  * Debugger is active!
+[2026-04-11 01:21:55,011] werkzeug - INFO -  * Debugger PIN: 451-382-089
+[2026-04-11 01:22:20,741] root - ERROR - Error occurred in script: [E:\ml_pipline_project\src\app.py] at line number: [<frame at 0x0000022D0892C0A0, file 'E:\\ml_pipline_project\\src\\app.py', line 47, code predict_datapoint>] error message: [Could not build url for endpoint 'prediction_data'. Did you mean 'predict_datapoint' instead?]
+[2026-04-11 01:22:20,808] werkzeug - INFO - 127.0.0.1 - - [11/Apr/2026 01:22:20] "[35m[1mGET / HTTP/1.1[0m" 500 -
+[2026-04-11 01:22:20,841] werkzeug - INFO - 127.0.0.1 - - [11/Apr/2026 01:22:20] "[36mGET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+[2026-04-11 01:22:21,008] werkzeug - INFO - 127.0.0.1 - - [11/Apr/2026 01:22:21] "[36mGET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+[2026-04-11 01:22:21,344] werkzeug - INFO - 127.0.0.1 - - [11/Apr/2026 01:22:21] "GET /?__debugger__=yes&cmd=resource&f=console.png&s=NYoa9uiiCDMuSn1UCSrc HTTP/1.1" 200 -
+[2026-04-11 01:22:21,600] werkzeug - INFO - 127.0.0.1 - - [11/Apr/2026 01:22:21] "[36mGET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -

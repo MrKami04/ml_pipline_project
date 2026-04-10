@@ -1,24 +1,55 @@
-from flask import Flask
+from flask import Flask, render_template, request, jsonify
+from src.pipeline.prediction_pipeline import PredictionPipeline, CustomClass
 from src.exception import CustomException
-import sys
+import sys, os  
 
-try:
-    from logger import logging
-except ImportError:
-    from src.logger import logging
 
-app = Flask(__name__)
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+app = Flask(__name__, template_folder=os.path.join(BASE_DIR, 'templates'))
 
 @app.route('/', methods=['GET', 'POST'])
-def index():
+
+def predict_datapoint():
     try:
-        raise Exception("This is a test exception for the index route.")
+        if request.method == 'GET':
+            return render_template('home.html')
+        else:
+            data = CustomClass(
+                age=int(request.form.get('age')),
+                workclass=int(request.form.get('workclass')),
+                education_num=int(request.form.get('education_num')),
+                marital_status=int(request.form.get('marital_status')),
+                occupation=int(request.form.get('occupation')),
+                relationship=int(request.form.get('relationship')),
+                race=int(request.form.get('race')),
+                sex=int(request.form.get('sex')),
+                capital_gain=int(request.form.get('capital_gain')),
+                capital_loss=int(request.form.get('capital_loss')),
+                hours_per_week=int(request.form.get('hours_per_week')),
+                native_country=int(request.form.get('native_country'))
+            )
+            
+            
+        final_new_data = data.custom_data_frame()
+        predict_pipeline = PredictionPipeline()
+        pred = predict_pipeline.predict(final_new_data)
+        
+        result = int(pred[0])
+        
+        if result == 0:
+            return render_template('results.html', final_result="The person is likely to earn per year less than or equal to 50K: {}.".format(result))
+        elif result == 1:
+            return render_template('results.html', final_result="The person is likely to earn per year more than 50K: {}.".format(result))
+        else:
+            return render_template('results.html', final_result="Prediction is not clear.")
         
     except Exception as e:
-        abc = CustomException(e, sys)
-        logging.error("An error occurred in the index route.")
-        return "Hello, Wkamran manzoor! Welcome to the ML Pipeline Project."
+        raise CustomException(e, sys)
+    
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)
+        
+    
+    
+    
